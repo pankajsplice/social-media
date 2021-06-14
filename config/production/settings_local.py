@@ -9,7 +9,7 @@ DEBUG = False
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'localmingle',
+        'NAME': 'localmingle_web',
         'USER': 'admin',
         'PASSWORD': '@dm!9098)(*',
         'HOST': '209.126.86.200',
