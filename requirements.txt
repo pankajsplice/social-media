@@ -1,0 +1,8 @@
+Django
+django-widget-tweaks
+djangorestframework
+Pillow
+django-ckeditor
+mysqlclient
+pymysql
+gunicorn

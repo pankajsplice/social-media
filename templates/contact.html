@@ -1,0 +1,153 @@
+{% extends "include/base.html" %}
+{% load static %}
+
+{% block title %}Contact Us{% endblock %}
+{% block extra_css %}
+<style>
+    #pageloader
+    {
+        background: rgba( 255, 255, 255, 0.8 );
+        display: none;
+        height: 100%;
+        position: fixed;
+        width: 100%;
+        z-index: 9999;
+    }
+
+    #pageloader img
+    {
+        left: 50%;
+        margin-left: -32px;
+        margin-top: -32px;
+        position: absolute;
+        top: 50%;
+    }
+</style>
+{% endblock %}
+{% block content %}
+<div id="pageloader">
+   <img src="http://cdnjs.cloudflare.com/ajax/libs/semantic-ui/0.16.1/images/loader-large.gif" alt="processing..." />
+</div>
+<section class="head-menu head-menu-add" id="header"> 
+    <div class="container">
+        <div class="row h">
+            <div class="ham" id="smartbutton">
+                <i class="fa fa-bars" aria-hidden="true"></i>
+            </div>
+
+            <div class="col-md-4 logo" >
+                <a href="/" class="head-log"><img src="{% static 'img/localmingle-logo.png' %}"></a>
+                <a href="/" class="scroll"><img src="{% static 'img/logo-icon.png' %}"></a>
+            </div>
+
+            <div class="col-md-8 menu">
+                <ul>
+                    <li><a href="/" class="navitem">Home</a></li>
+                    <li><a href="/blog" class="navitem">Blog</a></li>
+                    <li><a href="/contact" class="navitem active">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="contactus">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h5>Our Contacts and Location</h5>
+                <h2>Contact  <span>Information</span></h2>
+            </div>
+        </div>
+        <div class="row pt-5">
+            <div class="col-md-4">
+                <div class="contact-in">
+                    <h2>Address <span>350 Fifth Avenue, New York, NY 10001</span></h2>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="contact-in">
+                    <h2>Email <span>support@example.com</span></h2>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="contact-in">
+                    <h2>Phone <span>(800) 123 4567</span></h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="contct-form">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h5>Send Us a Message</h5>
+                <h2>Get in <span> Touch </span></h2>
+            </div>
+        </div>
+        <form id="contact-form" method="post">
+            <div class="row pt-5">
+                <div class="col-md-6">
+                    <input type="text" class="form-control" placeholder="Your Name" name="name">
+                </div>
+                <div class="col-md-6">
+                    <input type="text" class="form-control" placeholder="Your Email" name="email">
+                </div>
+            </div>
+            <div class="row pt-5">
+                <div class="col-md-12">
+                    <textarea class="form-control" name="message" placeholder="Your Message"></textarea>
+                </div>
+            </div>
+            <div class="row pt-5 cont-from-btn">
+                <div class="col">
+                    <button type="submit">Submit</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>
+{% endblock %}
+{% block extra_js %}
+<script type="text/javascript">
+function getCookie(name) {
+    var cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+        var cookies = document.cookie.split(';');
+        for (var i = 0; i < cookies.length; i++) {
+            var cookie = cookies[i].trim();
+            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+            }
+        }
+    }
+    return cookieValue;
+}
+
+$(document).on('submit', '#contact-form', function(e){
+    e.preventDefault();
+    $("#pageloader").fadeIn();
+    var csrf_token = getCookie('csrftoken');
+    var formData = new FormData(this);
+    $.ajax({
+        url: "/api/contact/",
+        method: "post",
+        headers: {"X-CSRFToken": csrf_token},
+        data: formData,
+        cache: false,
+        contentType: false,
+        processData: false,
+        success:function(data){
+            document.getElementById("contact-form").reset();
+            $("#pageloader").fadeOut();
+            alert("Details Saved Successfully.");
+        },
+        error:function(){}
+    });
+});
+</script>
+{% endblock %}

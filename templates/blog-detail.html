@@ -1,0 +1,52 @@
+{% extends "include/base.html" %}
+{% load static %}
+
+{% block title %}Local Mingle{% endblock %}
+
+{% block content %}
+<section class="head-menu head-menu-add" id="header"> 
+    <div class="container">
+        <div class="row h">
+            <div class="ham" id="smartbutton">
+                <i class="fa fa-bars" aria-hidden="true"></i>
+            </div>
+
+            <div class="col-md-4 logo" >
+                <a href="/" class="head-log"><img src="{% static 'img/localmingle-logo.png' %}"></a>
+                <a href="/" class="scroll"><img src="{% static 'img/logo-icon.png' %}"></a>
+            </div>
+
+            <div class="col-md-8 menu">
+                <ul>
+                    <li><a href="/" class="navitem">Home</a></li>
+                    <li><a href="/blog" class="navitem">Blog</a></li>
+                    <li><a href="/contact" class="navitem">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="blog-detail">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>{{ object.title }}</h1>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="blog-d-in">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="blg-time">Posted by {{ object.user }} <span>{{ object.published_date }}</span></div>
+                <div class="blg-in-cont">
+                    {{ object.content|safe }}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

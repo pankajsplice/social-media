@@ -1,0 +1,303 @@
+{% extends "include/base.html" %}
+{% load static %}
+
+{% block title %}Local Mingle{% endblock %}
+{% block extra_css %}
+<style>
+    #pageloader
+    {
+        background: rgba( 255, 255, 255, 0.8 );
+        display: none;
+        height: 100%;
+        position: fixed;
+        width: 100%;
+        z-index: 9999;
+    }
+
+    #pageloader img
+    {
+        left: 50%;
+        margin-left: -32px;
+        margin-top: -32px;
+        position: absolute;
+        top: 50%;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div id="pageloader">
+   <img src="http://cdnjs.cloudflare.com/ajax/libs/semantic-ui/0.16.1/images/loader-large.gif" alt="processing..." />
+</div>
+<section class="head-menu" id="header">
+   <div class="container">
+      <div class="row h">
+         <div class="ham" id="smartbutton">
+            <i class="fa fa-bars" aria-hidden="true"></i>
+         </div>
+         <div class="col-md-4 logo" >
+            <a href="/" class="head-log"><img src="{% static 'img/localmingle-logo.png' %}"></a>
+            <a href="/" class="scroll"><img src="{% static 'img/logo-icon.png' %}"></a>
+         </div>
+         <div class="col-md-8 menu">
+            <ul>
+               <li><a href="/" class="navitem active">Home</a></li>
+               <li><a href="/blog" class="navitem">Blog</a></li>
+               <li><a href="/contact" class="navitem">Contact</a></li>
+            </ul>
+         </div>
+      </div>
+   </div>
+</section>
+<section class="site-slider" id="home">
+   <div id="demo" class="carousel slide" data-ride="carousel">
+      <ul class="carousel-indicators">
+         <li data-target="#demo" data-slide-to="0" class="active"></li>
+         <li data-target="#demo" data-slide-to="1"></li>
+         <li data-target="#demo" data-slide-to="2"></li>
+         <li data-target="#demo" data-slide-to="3"></li>
+      </ul>
+      <div class="carousel-inner">
+         <div class="carousel-item active">
+            <div class="desk-ban"><img src="{% static 'img/slide11.jpg' %}" alt="Los Angeles" width="1100" height="500"></div>
+            <div class="carousel-caption" data-aos="fade-right"
+               data-aos-offset="200"
+               data-aos-easing="ease-in-sine" >
+               <h1 > Life is an event. Make it memorable. <span>Get neck-deep in valuable events industry resources. We've combed the <br> internet for the best blogs on event trends, </span></h1>
+            </div>
+         </div>
+         <div class="carousel-item">
+            <div class="desk-ban">
+               <img src="{% static 'img/slide21.jpg' %}" alt="Chicago" width="1100" height="500">
+            </div>
+            <div class="carousel-caption" data-aos="fade-left"
+               data-aos-offset="200"
+               data-aos-easing="ease-in-sine" >
+               <h1> Every event is special, but yours
+                  <br>should  be unique.
+               </h1>
+            </div>
+         </div>
+         <div class="carousel-item" data-aos="fade-right"
+            data-aos-offset="200"
+            data-aos-easing="ease-in-sine" >
+            <div class="desk-ban">
+               <img src="{% static 'img/slide21.jpg' %}" alt="New York" width="1100" height="500">
+            </div>
+            <div class="carousel-caption">
+               <h1>Your events deserve our <br> management.</h1>
+            </div>
+         </div>
+         <div class="carousel-item" data-aos="fade-right"
+            data-aos-offset="200"
+            data-aos-easing="ease-in-sine" >
+            <div class="desk-ban">
+               <img src="{% static 'img/slide11.jpg' %}" alt="New York" width="1100" height="500">
+            </div>
+            <div class="carousel-caption">
+               <h1>We are equally excited about
+                  <br>your meeting.
+               </h1>
+            </div>
+         </div>
+      </div>
+      <a class="carousel-control-prev" href="#demo" data-slide="prev">
+      <span class="carousel-control-prev-icon"></span>
+      </a>
+      <a class="carousel-control-next" href="#demo" data-slide="next">
+      <span class="carousel-control-next-icon"></span>
+      </a>
+   </div>
+</section>
+<section class="event-plan">
+   <div class="container">
+      <div class="row">
+         <div class="col">
+            <h2>What Do You Want to Do Tonight?</h2>
+            <p>   Local Mingle app will create face-to-face connection amongst singles, locals, travelers and those new to the area, while supporting the entertainment industry and local venues by posting local entertainment and events. The app features a wide variety of event categories to accommodate the interests of all app users. Each event will include a comment section which allows the app users to make comments and text one another in order to make plans for meeting at the event. </p>
+         </div>
+      </div>
+      <div class="row pt-5">
+         <div class="col-md-4">
+            <div class="event-p-in">
+               <i class="fa fa-music" aria-hidden="true"></i>
+               <h3>Concerts</h3>
+            </div>
+         </div>
+         <div class="col-md-4">
+            <div class="event-p-in">
+               <i class="fa fa-futbol-o" aria-hidden="true"></i>
+               <h3>Sports</h3>
+            </div>
+         </div>
+         <div class="col-md-4">
+            <div class="event-p-in">
+               <i class="fa fa-glass" aria-hidden="true"></i>
+               <h3>Local Events</h3>
+            </div>
+         </div>
+         <div class="col-md-4">
+            <div class="event-p-in">
+               <i class="fa fa-university" aria-hidden="true"></i>
+               <h3>Arts & Theatre</h3>
+            </div>
+         </div>
+         <div class="col-md-4">
+            <div class="event-p-in">
+               <i class="fa fa-gift" aria-hidden="true"></i>
+               <h3>Festivals</h3>
+            </div>
+         </div>
+         <div class="col-md-4">
+            <div class="event-p-in">
+               <i class="fa fa-calendar" aria-hidden="true"></i>
+               <h3>Prime Events</h3>
+            </div>
+         </div>
+      </div>
+   </div>
+</section>
+<section class="download-app">
+   <div class="container">
+      <div class="row pt-5">
+         <div class="col-md-6">
+            <img src="{% static 'img/download.png' %}">
+         </div>
+         <div class="col-md-6 app-store">
+            <div class="app-tit">
+               Download the Best Event Application!
+            </div>
+            <p>
+               Adable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here.
+            </p>
+            <ul>
+               <li><a href=""><img src="{% static 'img/google-store.png' %}">Google Pla</a>y</li>
+               <li><a href=""><img src="{% static 'img/ios-store.png' %}">IOS Store</a></li>
+            </ul>
+         </div>
+      </div>
+   </div>
+</section>
+<section class="app-screen">
+   <div class="container">
+      <div class="row">
+         <div class="col">
+            <h2>Local Mingle App</h2>
+         </div>
+      </div>
+      <div class="row pt-5 mt-5">
+         <div class="owl-carousel owl-theme">
+            <div class="item ">
+               <img src="{% static 'img/1-screen.jpg' %}">
+            </div>
+            <div class="item ">
+               <img src="{% static 'img/4-screen.jpg' %}">
+            </div>
+            <div class="item ">
+               <img src="{% static 'img/5-screen.jpg' %}">
+            </div>
+            <div class="item ">
+               <img src="{% static 'img/6-screen.jpg' %}">
+            </div>
+            <div class="item ">
+               <img src="{% static 'img/7-screen.jpg' %}">
+            </div>
+         </div>
+      </div>
+   </div>
+</section>
+<section class="news-article">
+   <div class="container">
+      <div class="row">
+         <div class="col">
+            <h2>News & Article</h2>
+         </div>
+      </div>
+      <div class="row pt-5">
+         {% if blogs %}
+         {% for item in blogs %}
+         <div class="col-md-4">
+                <div class="article-in">
+                    <img src="{{ item.icon.url }}">
+                    <div class="arti-text">
+                        <h5>{{ item.user }} <span>{{ item.published_date }}</span></h5>
+                        <h3>{{ item.title }}</h3>
+                        <p>{{ item.content|safe|truncatewords:25 }}</p>
+                        <a href="{% url 'blog-detail' item.slug  %}" target="_blank">Read More</a>
+                    </div>
+                </div>
+            </div>
+         {% endfor %}
+         {% endif %}
+      </div>
+      <div class="row pt-5 viewbtn">
+         <div class="col">
+            <a href="/blog">View More</a>
+         </div>
+      </div>
+   </div>
+</section>
+<section class="newsletter">
+   <div class="container">
+      <div class="row">
+         <div class="col-md-6">
+            <div class="news-tit">Join our community <span>Subscribe the Newsletter for any new events and updates.
+               </span>
+            </div>
+         </div>
+         <div class="col-md-5 offset-md-1">
+            <form id="newsletter-form" method="post">
+            <div class="row">
+               <div class="col-md-9">
+                  <input type="text" class="form-control" name="email" placeholder="Enter Email Address">
+               </div>
+               <div class="col-md-3">
+                  <button type="submit">Subscribe</button>
+               </div>
+            </div>
+            </form>
+         </div>
+      </div>
+   </div>
+</section>
+{% endblock %}
+{% block extra_js %}
+<script type="text/javascript">
+function getCookie(name) {
+    var cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+        var cookies = document.cookie.split(';');
+        for (var i = 0; i < cookies.length; i++) {
+            var cookie = cookies[i].trim();
+            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+            }
+        }
+    }
+    return cookieValue;
+}
+
+$(document).on('submit', '#newsletter-form', function(e){
+    e.preventDefault();
+    $("#pageloader").fadeIn();
+    var csrf_token = getCookie('csrftoken');
+    var formData = new FormData(this);
+    $.ajax({
+        url: "/api/newsletter/",
+        method: "post",
+        headers: {"X-CSRFToken": csrf_token},
+        data: formData,
+        cache: false,
+        contentType: false,
+        processData: false,
+        success:function(data){
+            document.getElementById("newsletter-form").reset();
+            $("#pageloader").fadeOut();
+            alert("Subscribed Successfully.");
+        },
+        error:function(){}
+    });
+});
+</script>
+{% endblock %}
