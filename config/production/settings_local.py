@@ -4,8 +4,8 @@
 
 import pymysql
 pymysql.install_as_MySQLdb()
-ALLOWED_HOSTS = ['*']
-DEBUG = False
+ALLOWED_HOSTS = ['localmingle.net']
+DEBUG = True
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
