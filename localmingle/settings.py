@@ -29,6 +29,8 @@ location = lambda x: os.path.join(os.path.realpath(BASE_DIR), x)
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'ay%^5$(luk(g^z(=%_%&cg3!7uyx(75m!dqom_p-xkq9545c@c'
+GOOGLE_RECAPTCHA_SECRET_KEY = '6LdtQboUAAAAABSg5gdeAnc-A1nfN-Sw__cyvM4j'
+GOOGLE_RECAPTCHA_SITE_KEY = '6LdtQboUAAAAAI2Czkq1B03mtiUeZpAoCj1vr2Js'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
