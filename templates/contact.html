@@ -91,15 +91,21 @@
         <form id="contact-form" method="post">
             <div class="row pt-5">
                 <div class="col-md-6">
-                    <input type="text" class="form-control" placeholder="Your Name" name="name">
+                    <input type="text" class="form-control" placeholder="Your Name" name="name" required>
                 </div>
                 <div class="col-md-6">
-                    <input type="text" class="form-control" placeholder="Your Email" name="email">
+                    <input type="email" class="form-control" placeholder="Your Email" name="email" required>
                 </div>
             </div>
             <div class="row pt-5">
                 <div class="col-md-12">
-                    <textarea class="form-control" name="message" placeholder="Your Message"></textarea>
+                    <textarea class="form-control" name="message" placeholder="Your Message" required></textarea>
+                </div>
+            </div>
+            <div class="row pt-5">
+                <div class="col-md-12">
+                    <div class="g-recaptcha" data-sitekey="6LdtQboUAAAAAI2Czkq1B03mtiUeZpAoCj1vr2Js" data-callback="verifyCaptcha"></div>
+                    <div id="g-recaptcha-error"></div>
                 </div>
             </div>
             <div class="row pt-5 cont-from-btn">
@@ -112,6 +118,7 @@
 </section>
 {% endblock %}
 {% block extra_js %}
+<script src='https://www.google.com/recaptcha/api.js' async defer></script>
 <script type="text/javascript">
 function getCookie(name) {
     var cookieValue = null;
@@ -128,26 +135,42 @@ function getCookie(name) {
     return cookieValue;
 }
 
+function verifyCaptchaa() {
+    document.getElementById('g-recaptcha-error').innerHTML = '';
+}
+
 $(document).on('submit', '#contact-form', function(e){
     e.preventDefault();
-    $("#pageloader").fadeIn();
-    var csrf_token = getCookie('csrftoken');
-    var formData = new FormData(this);
-    $.ajax({
-        url: "/api/contact/",
-        method: "post",
-        headers: {"X-CSRFToken": csrf_token},
-        data: formData,
-        cache: false,
-        contentType: false,
-        processData: false,
-        success:function(data){
-            document.getElementById("contact-form").reset();
-            $("#pageloader").fadeOut();
-            alert("Details Saved Successfully.");
-        },
-        error:function(){}
-    });
+    var response = grecaptcha.getResponse();
+    if(response.length == 0) {
+        document.getElementById('g-recaptcha-error').innerHTML = '<span style="color:red;">Invalid reCAPTCHA. Please try again.</span>';
+        return false;
+    }
+    else{
+        $("#pageloader").fadeIn();
+        var csrf_token = getCookie('csrftoken');
+        var formData = new FormData(this);
+        $.ajax({
+            url: "/api/contact/",
+            method: "post",
+            headers: {"X-CSRFToken": csrf_token},
+            data: formData,
+            cache: false,
+            contentType: false,
+            processData: false,
+            success:function(data){
+                document.getElementById("contact-form").reset();
+                $("#pageloader").fadeOut();
+                alert("Details Saved Successfully.");
+                function redirect()
+                {
+                    window.location.href = "/contact";
+                }
+                setTimeout(redirect, 1500);
+            },
+            error:function(){}
+        });
+    }
 });
 </script>
 {% endblock %}
