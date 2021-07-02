@@ -24,7 +24,7 @@ html, body, html * {
     margin-top: 20px;
     cursor: pointer;}
 .head-menu {background-color: #fff; padding: 20px 0;}
-.head-menu .menu ul{list-style:none; margin:20px 0 0 0; padding: 0;
+.head-menu .menu ul{list-style:none; margin:29px 0 0 0; padding: 0;
  text-align: right;}
 .head-menu .menu ul li{display:inline-block; padding: 0 10px;}
 .head-top  {font-weight: 600;}
@@ -55,7 +55,7 @@ html, body, html * {
     -webkit-transition: all 0.7s ease 0s;
     z-index: 125;
 }
-.fixed#header .logo img{ width: 70px; }
+.fixed#header .logo img{ width: 90px; }
 .fixed#header a{    color: #004083; font-size:13px;}
 .fixed#header .head-menu .menu ul{ margin-top: 25px; }
 
@@ -65,7 +65,7 @@ html, body, html * {
 .fixed#header .head-log{display: none;}
 
 
-.logo  img{ width: 80px; }
+.logo  img{ width: 110px; }
 .logo span {color: #c1e277;}
 .mob { display: none; }
 /*.carousel-indicators { display: none; }*/
@@ -216,7 +216,7 @@ color: #333;}
 
 .head-menu.head-menu-add {border-bottom: 1px solid #0e98cd;
     background-color: white;}
-    .head-menu.head-menu-add .head-log img{ width: 80px; }
+    .head-menu.head-menu-add .head-log img{ width: 110px; }
 .privacy { padding:150px 0 50px 0; background-color: #fff;}
 .privacy h1 {
     font-size: 40px;
