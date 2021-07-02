@@ -23,19 +23,19 @@ html, body, html * {
     margin-left:10px;
     margin-top: 20px;
     cursor: pointer;}
-.head-menu {background-color: #ffffff00; padding: 20px 0;}
-.head-menu .menu ul{list-style:none; margin:25px 0 0 0; padding: 0;
+.head-menu {background-color: #fff; padding: 20px 0;}
+.head-menu .menu ul{list-style:none; margin:20px 0 0 0; padding: 0;
  text-align: right;}
 .head-menu .menu ul li{display:inline-block; padding: 0 10px;}
 .head-top  {font-weight: 600;}
 .head-top ul { margin: 0; padding:0; text-align: left; }
 .head-top ul li{ color: #c1e277; display: inline-block; padding-right: 15px; cursor: pointer; 
   text-transform: uppercase; text-align: left;}
-.head-menu .menu ul li a{color: #ffffff; font-size: 12px; font-weight: 600; padding: 10px 15px; 
+.head-menu .menu ul li a{color: #333; font-size: 12px; font-weight: 600; padding: 10px 15px;
   text-transform: uppercase; text-decoration: none;letter-spacing: 2px; }
 .head-menu .menu ul li a:hover {color: #0e98cd; padding: 10px 15px;  border-radius: 50px;
  transition: 1s ease-in; }
-.head-menu .menu ul li a.active {color:#32bff5; padding: 10px 15px; 
+.head-menu .menu ul li a.active {color:#32bff5; padding: 10px 15px;
  border-radius: 50px; transition: 1s ease-in; }
 
 
@@ -65,7 +65,7 @@ html, body, html * {
 .fixed#header .head-log{display: none;}
 
 
-.logo  img{ width: 100px; }
+.logo  img{ width: 80px; }
 .logo span {color: #c1e277;}
 .mob { display: none; }
 /*.carousel-indicators { display: none; }*/
@@ -214,8 +214,8 @@ color: #333;}
 
 .newsletter button:focus {outline: none;}
 
-.head-menu.head-menu-add {
-    background-color: #005397;}
+.head-menu.head-menu-add {border-bottom: 1px solid #0e98cd;
+    background-color: white;}
     .head-menu.head-menu-add .head-log img{ width: 80px; }
 .privacy { padding:150px 0 50px 0; background-color: #fff;}
 .privacy h1 {
