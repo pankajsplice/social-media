@@ -60,22 +60,22 @@
             </div>
         </div>
         <div class="row pt-5">
-            <div class="col-md-4">
+            <div class="col-md-6">
                 <div class="contact-in">
                     <h2>Address <span>853 Schilling Farm Cir Collierville, Tn. 38017</span></h2>
                 </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-6">
                 <div class="contact-in">
                     <h2>Email <span>info@localmingle.net</span></h2>
                 </div>
             </div>
 
-            <div class="col-md-4">
+            <!--<div class="col-md-4">
                 <div class="contact-in">
                     <h2>Phone <span>(800) 123 4567</span></h2>
                 </div>
-            </div>
+            </div>-->
         </div>
     </div>
 </section>
@@ -86,6 +86,8 @@
             <div class="col">
                 <h5>Send Us a Message</h5>
                 <h2>Get in <span> Touch </span></h2>
+                <p>Please complete the form below to include your name, your email address and a short description of how we may help you and we will reply within 24 hours.
+(Please note all emails received outside normal business hours will be answered the following business day)</p>
             </div>
         </div>
         <form id="contact-form" method="post">
@@ -99,7 +101,8 @@
             </div>
             <div class="row pt-5">
                 <div class="col-md-12">
-                    <textarea class="form-control" name="message" placeholder="Your Message" required></textarea>
+                    <textarea class="form-control" maxlength="500" id="message" name="message" placeholder="Your Message" required></textarea>
+                    <span id='remainingC'></span>
                 </div>
             </div>
             <div class="row pt-5">
@@ -171,6 +174,25 @@ $(document).on('submit', '#contact-form', function(e){
             error:function(){}
         });
     }
+});
+</script>
+<script>
+$(document).ready(function() {
+  var len = 0;
+  var maxchar = 500;
+
+  $( '#message' ).keyup(function(){
+    len = this.value.length
+    if(len > maxchar){
+        return false;
+    }
+    else if (len > 0) {
+        $( "#remainingC" ).html(( maxchar - len ) + "/500");
+    }
+    else {
+        $( "#remainingC" ).html(( maxchar ) + "/500" );
+    }
+  })
 });
 </script>
 {% endblock %}
